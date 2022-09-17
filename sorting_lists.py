@@ -43,4 +43,34 @@ def sort_on_element(list_of_tuples, element=1):
 """
     return sorted(list_of_tuples, key=operator.itemgetter(element))
 
+def add_lists(list1, list2):
+    """Returns a list by adding the corresponding elements of 2 lists
+
+    Example 1: if lists are equal length, then add all the elements
+    _________________________________________________________________
+    numbers1 = [1, 2, 3]
+    numbers2 = [4, 5, 6]
+    print(add_lists(numbers1, numbers2))
+
+    Output:
+    [5, 7, 9]
+
+    Example 2: if lists are equal length, then add till length of shorter list
+    ____________________________________________________________________________
+    numbers1 = [1, 2]
+    numbers2 = [4, 5, 6]
+    print(add_lists(numbers1, numbers2))
+
+    Output:
+    [5, 7]
+
+    Args:
+        list1 (list): A list of integers
+        list2 (list): A list of integers
+
+    Returns:
+        list: List of added values
+"""
+    return list(map(lambda x, y: x + y, numbers1, numbers2))
+
 
