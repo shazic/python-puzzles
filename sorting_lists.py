@@ -90,3 +90,24 @@ def even_odd_sums(iterable):
     """
     return [sum(iterable[0::2]), sum(iterable[1::2])]
 
+def plus_minus(numbers):
+    """Takes a list of numbers, and returns the result
+    of alternately adding and subtracting them.
+
+    Calling the function as plus_minus([10, 20, 30, 40, 50, 60]),
+    you’ll get back the result of 10+20-30+40-50+60, or 50
+    """
+
+    if not numbers:
+        return 0
+
+    total = numbers.pop(0)
+
+    while numbers:
+        total += numbers.pop(0)
+
+        if numbers:
+            total -= numbers.pop(0)
+
+    return total
+
