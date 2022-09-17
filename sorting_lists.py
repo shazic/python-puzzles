@@ -111,3 +111,34 @@ def plus_minus(numbers):
 
     return total
 
+def sort_list_of_dicts(list_of_dicts, *keys_for_sort):
+    """Takes a list of dictionaries and sorts it as per the given keys
+    Example:
+    _________
+    Let’s assume you have phone book data in a list of dicts, as follows:
+
+    contact_list = [{'first':'Shashank', 'last':'Chattopadhyaya',
+        'email':'mail@shashank.wiki'},
+     {'first':'George', 'last':'Lucas',
+        'email':'lucasgeorge@starwars.movies'},
+     {'first':'Phil', 'last':'Jackson',
+        'email':'pjackson@gmail.com'},
+     {'first':'Peter', 'last':'Jackson',
+        'email':'peter@jackson.movies'}
+     ]
+    print(sort_list_of_dicts(PEOPLE, 'last', 'first'))
+
+    This should return the list of dicts, but sorted by last name and then by first name.
+
+    Output:
+    [{'first': 'Shashank', 'last': 'Chattopadhyaya', 'email': 'mail@shashank.wiki'}, {'first': 'Peter', 'last': 'Jackson', 'email': 'peter@jackson.movies'}, {'first': 'Phil', 'last': 'Jackson', 'email': 'pjackson@gmail.com'}, {'first': 'George', 'last': 'Lucas', 'email': 'lucasgeorge@starwars.movies'}]
+
+    Args:
+        list_of_dicts (list of dictionaries): _description_
+
+    Returns:
+        list of dictionaries: The sorted list of dictionaries
+    """
+    return sorted(list_of_dicts, key=operator.itemgetter(*keys_for_sort))
+
+
