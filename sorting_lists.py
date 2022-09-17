@@ -1,4 +1,5 @@
 import operator
+import collections
 
 def reverse_sort(iterable_arg):
     """Returns the iterable argument in reverse
@@ -141,4 +142,27 @@ def sort_list_of_dicts(list_of_dicts, *keys_for_sort):
     """
     return sorted(list_of_dicts, key=operator.itemgetter(*keys_for_sort))
 
+def number_of_vowels(input_string):
+    """Returns the number of vowels in a string
+
+    Args:
+        input_string (string): a string value
+
+    Returns:
+        int: number of vowels in the argument string
+    """
+    counts = collections.Counter(input_string) # Creates a dict like {'char1': count_of_char1, 'char2': count_of_char2,...}
+    vowel_counts = operator.itemgetter('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U')(counts) # get a list of vowel counts only
+    return sum(vowel_counts)
+
+def sort_by_vowel_count(list_of_strings, ascending=True):
+    """sort a list of strings according to how many vowels they contain
+
+    Args:
+        list_of_strings (list): A list of strings
+
+    Returns:
+        list: Argument list sorted as per the number of vowels
+    """
+    return sorted(list_of_strings, reverse=ascending, key=number_of_vowels)
 
